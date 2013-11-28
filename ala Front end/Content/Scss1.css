@@ -1,0 +1,177 @@
+/* Reset */
+body, div, section, aside, nav, a, ul, li, article, footer, p, header, footer, hgroup, h1, h2, img {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-image: url(../images/background.jpg);
+  background-repeat: no-repeat;
+  color: #94DBFF; }
+
+/* clearfixes */
+/* Layout Styles
+----------------------------------------------------------*/
+#wrapper {
+  margin: 0 auto;
+  width: 80%; }
+
+#main-header {
+  background-color: #1e1e1e;
+  opacity: 0.9;
+  padding: 10px;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 6px 6px 6px #000;
+  zoom: 1; }
+  #main-header img {
+    width: 120px;
+    height: 126px;
+    float: left;
+    margin-left: 10px; }
+  #main-header h1, #main-header h2 {
+    font-family: SketchFlow Print;
+    color: #007ACC;
+    margin-left: 20%;
+    margin-top: 20px; }
+  #main-header:after {
+    display: block;
+    content: "";
+    height: 0;
+    clear: both; }
+
+#container {
+  margin-top: 30px;
+  background-color: rgba(30, 30, 30, 0.9);
+  box-shadow: 6px 6px 6px #000;
+  zoom: 1; }
+  #container aside {
+    width: 11%;
+    margin: 10px;
+    margin-right: 0;
+    background-color: #162B35;
+    min-height: 430px;
+    float: left;
+    box-shadow: 6px 6px 6px #000; }
+  #container #nested {
+    margin: 10px;
+    width: 77.5%;
+    float: left; }
+  #container #main-nav-right {
+    width: 11%;
+    margin-left: -35px;
+    float: left;
+    margin-top: 10px;
+    box-shadow: 6px 6px 6px #000; }
+    #container #main-nav-right ul {
+      list-style: none;
+      text-align: center;
+      font-family: 'Segoe UI';
+      font-size: 18px; }
+      #container #main-nav-right ul li {
+        display: block;
+        border-top: 1px solid black;
+        background-color: #162B35; }
+        #container #main-nav-right ul li:first-child {
+          border: none; }
+        #container #main-nav-right ul li:hover {
+          background-color: #007ACC; }
+        #container #main-nav-right ul li a {
+          padding-top: 20%;
+          padding-bottom: 20%;
+          text-decoration: none;
+          color: #94DBFF;
+          display: block; }
+  #container:after {
+    display: block;
+    content: "";
+    height: 0;
+    clear: both; }
+
+#wrapper > footer {
+  box-shadow: 6px 6px 6px #000;
+  font-family: SketchFlow Print;
+  color: #007ACC;
+  background-color: rgba(30, 30, 30, 0.9);
+  font-size: 26px;
+  text-align: center;
+  margin-top: 10px; }
+  #wrapper > footer p {
+    padding-top: 10px;
+    padding-bottom: 10px; }
+
+/* Main Style
+----------------------------------------------------------*/
+#nested section {
+  font-family: 'Segoe UI';
+  font-size: 18px;
+  zoom: 1; }
+  #nested section #map {
+    float: left;
+    width: 53%;
+    height: 400px;
+    box-shadow: 6px 6px 6px #000;
+    border: 1px solid black; }
+  #nested section #layer-info-date-container {
+    width: 42%;
+    float: left;
+    margin-left: 10px;
+    text-align: center;
+    zoom: 1; }
+    #nested section #layer-info-date-container > div {
+      margin-top: 10px;
+      box-shadow: 6px 6px 6px #000; }
+      #nested section #layer-info-date-container > div:first-child {
+        margin-top: 0; }
+    #nested section #layer-info-date-container #layers header, #nested section #layer-info-date-container #information header {
+      background-color: #162B35;
+      padding: 5px; }
+    #nested section #layer-info-date-container #layers #layers-container, #nested section #layer-info-date-container #layers #info-container, #nested section #layer-info-date-container #information #layers-container, #nested section #layer-info-date-container #information #info-container {
+      background-color: #ece9e9;
+      min-height: 100px; }
+    #nested section #layer-info-date-container:after {
+      display: block;
+      content: "";
+      height: 0;
+      clear: both; }
+  #nested section #date {
+    padding: 5px;
+    display: inline-block;
+    width: 53%; }
+    #nested section #date header {
+      text-align: center; }
+  #nested section:after {
+    display: block;
+    content: "";
+    height: 0;
+    clear: both; }
+
+/* Information Style
+----------------------------------------------------------*/
+#nested #info {
+  border: 1px solid black;
+  box-shadow: 6px 6px 6px #000;
+  width: 95%;
+  padding: 5px;
+  color: white; }
+  #nested #info header {
+    width: 95%; }
+  #nested #info section {
+    width: 95%;
+    margin-top: 5%;
+    word-wrap: break-word; }
+  #nested #info footer {
+    text-align: right;
+    margin-right: 10%;
+    width: 95%;
+    box-shadow: none; }
+  #nested #info form {
+    margin-top: 10px; }
+    #nested #info form input[type="submit"] {
+      border: 1px solid black;
+      background-color: #162B35;
+      padding: 5px; }
+      #nested #info form input[type="submit"]:hover {
+        background-color: #94DBFF; }
+
+/* responsive
+----------------------------------------------------------*/
+

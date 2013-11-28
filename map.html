@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script src="OpenLayers-2.12/OpenLayers.js"></script>
+    <script type="text/javascript">
+        var lon = 42,
+            lat = 25,
+            zoom = 3,
+            epsg4326 = new OpenLayers.Projection('EPSG:4326');
+            epsg32634 = new OpenLayers.Projection('EPSG:32635'),
+            epsg900913 = new OpenLayers.Projection('EPSG:900913');
+
+
+            var mapj;
+
+        function init() {
+            map = new OpenLayers.Map('mapm', {
+                units: 'm',
+                numZoomLevels: 19,
+                controls: [
+                    new OpenLayers.Control.Navigation(),
+                    new OpenLayers.Control.ScaleLine(),
+                    new OpenLayers.Control.MousePosition(),
+                    new OpenLayers.Control.LayerSwitcher()
+                ],
+                projection: epsg900913,
+                displayProjection: epsg4326//Is used for displaying coordinates in appropriate CRS by MousePosition control
+            });
+
+            //var ls_layer = new OpenLayers.Layer.MapServer("Landsat ETM+ Layer 543",
+            //    "http://localhost:8080/cgi-bin/mapserv.exe", 
+            //    {
+            //        layer: 'test1',
+            //        map: '/ms4w/projs/test.map'                   
+            //    }, {isBaseLayer: false});
+
+            var lay_osm = new OpenLayers.Layer.OSM('OSM');
+
+            var ls_layer = new OpenLayers.Layer.MapServer("Landsat ETM+ Layer 543", "http://192.168.193.179:8080/cgi-bin/mapserv.exe", 
+			{ 
+				map: "/ms4w/projs/test.map",
+				layers: 'test1',
+				srs: "EPSG:900913",
+				format: 'image/png',
+				transparent: "true"
+                }, 
+				{ 
+					isBaseLayer: false
+				});
+
+
+
+			var ls_wms_123 = new OpenLayers.Layer.WMS("Landsat ETM 123 WMS",
+			"http://192.168.193.179:8080/cgi-bin/mapserv.exe?map=/ms4w/projs/test.map",
+			{
+				layers: 'ls123',
+				srs: "EPSG:900913",
+				format: 'image/png',
+				transparent: "true"}, 
+			{
+				isBaseLayer: false,
+				//opacity: 0.5
+			});
+			
+			
+			var ls_wms_453 = new OpenLayers.Layer.WMS("Landsat ETM 453 WMS",
+			"http://192.168.193.179:8080/cgi-bin/mapserv.exe?map=/ms4w/projs/test.map",
+			{
+				layers: 'ls453',
+				srs: "EPSG:900913",
+				format: 'image/png',
+				transparent: "true"}, 
+			{
+				isBaseLayer: false,
+				//opacity: 0.5
+			});
+
+            geojson_layer = new OpenLayers.Layer.Vector("GeoJSON", {
+                projection: epsg4326,
+                strategies: [new OpenLayers.Strategy.Fixed()],
+                protocol: new OpenLayers.Protocol.HTTP({
+                    url: "aaa_wgs84.json",
+                    format: new OpenLayers.Format.GeoJSON()
+                })
+            });
+
+            map.addLayers([lay_osm, geojson_layer, ls_wms_453, ls_wms_123]);
+			map.setCenter(new OpenLayers.LonLat(lon, lat).transform(epsg4326, epsg900913), zoom)
+        }
+    </script>
+  </head>
+  <body onload="init()">
+    <div id="mapm" style="position: absolute; right: 0px; top: 0px; width: 100%; height: 100%"></div>
+  </body>
+</html>

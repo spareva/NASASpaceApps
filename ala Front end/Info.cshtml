@@ -1,0 +1,40 @@
+﻿@{
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "About";
+
+    var db = Database.Open("StarterSite");
+    var selected = 1;
+
+    var str = "SELECT * FROM Articles WHERE id=@0";
+    var article = db.QuerySingle(str, selected);
+    
+    if (IsPost)
+    {
+        selected = Request["a-selected"].AsInt();
+        do
+        {
+            selected++;
+            article = db.QuerySingle(str, selected);
+        } while (article == null);
+    }
+    
+    
+}
+
+
+<h1>Information</h1>
+
+<article id="info">
+    
+    <header>
+        <h2>@article.Title</h2>
+    </header>
+    <section>@article.Content</section>
+    <footer>
+       <p>Posted at: @article.Date</p>
+    </footer>
+    <form method="post">
+        <input type="hidden" name="a-selected" value="@selected" />
+        <input type="submit" name="name" value="Next" />
+    </form>
+</article>

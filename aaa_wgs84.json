@@ -1,0 +1,7 @@
+{
+"type": "FeatureCollection",
+"features": [
+{ "type": "Feature", "properties": { "location": "test1.tif" }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 22.230701, 39.871772 ], [ 24.986453, 39.809754 ], [ 24.881621, 37.910329 ], [ 22.198247, 37.968300 ], [ 22.230701, 39.871772 ] ] ] } }
+
+]
+}

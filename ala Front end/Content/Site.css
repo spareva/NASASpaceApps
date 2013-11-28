@@ -1,0 +1,58 @@
+﻿/* Reset */
+body, div, section, aside, nav, a, ul, li, article {
+margin:0;
+padding:0;
+}
+
+/* clearfixes */
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear-fix:after {
+    content: "";
+    clear: both;
+    display: block;
+    height: 0
+}
+
+/* main layout
+----------------------------------------------------------*/
+#wrapper {
+    margin: 0 auto;
+    max-width: 1280px;
+    border:1px solid black;
+}
+
+#main-header {
+width:1280px;
+background-color:#1e1e1e;
+}
+
+    #main-header h1 {
+    font-family:SketchFlow Print;
+    color:green;
+   
+    float:left;
+    }
+
+    #main-header #logo {
+        background-image: url(images/logo.png);
+        background-repeat:no-repeat;
+        width:147px;
+        height:154px;
+        float:left;
+    }
+/* menu
+----------------------------------------------------------*/
+
+
+
+
+/* page elements
+----------------------------------------------------------*/
